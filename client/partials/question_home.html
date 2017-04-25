@@ -1,0 +1,27 @@
+<div ng-controller="UsersController as UC">
+	<h2>Hi {{UC.current_user.name}}</h2>
+	<button ng-click="UC.logout()" class="waves-effect waves-light btn">Logout</button>
+	<p></p>
+	<div>
+		<a href="#!/dashboard" class="waves-effect waves-light btn">Add a Question</a>
+	</div>
+	<div>
+		<input type="text" placeholder="filter" ng-model="searchQuestions">
+	</div>
+	<div>
+		<table border="1" cellpadding="4" bordercollapse="0">
+			<tr>
+				<td>Question</td>
+				<td>Answers</td>
+				<td>Action</td>
+			</tr>
+			<div  ng-init="UC.getQuestions()">
+				<tr ng-repeat="question in UC.questions | filter:searchQuestions"">
+					<td>{{question.question}}</td>
+					<td>{{question.answers.length}}</td>
+					<td><a ng-click="UC.showQ(question._id)" href="" class="waves-effect waves-light btn">Show</a>  <a ng-click="UC.answer(question._id)" href="" class="waves-effect waves-light btn">Answer</a></td>
+				</tr>
+			</div>
+		</table>
+	</div>
+</div>

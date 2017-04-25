@@ -1,0 +1,40 @@
+<div ng-controller="UsersController as UC">
+	<h4>Welcome to the User Dashboard {{UC.current_user.name}}</h4>
+
+	<div>
+		<h5>Ask a Question!</h5>
+	</div>
+	<div>
+		<ul ng-repeat="error in UC.errors">
+			<li>{{error}}</li>
+		</ul>
+		
+	</div>
+	<div>
+		<form ng-submit="UC.askQuestion(UC.newQuestion)">
+			<textarea placeholder="Question?" cols="85" rows="4" ng-model="UC.newQuestion.question"></textarea>
+			<div>
+				<textarea placeholder="Description (optional)" cols="85" rows="4" ng-model="UC.newQuestion.description"></textarea>
+			</div>
+			<div>
+				<input type="submit" value="ask" class="waves-effect waves-light btn">
+			</div>	
+		</form>
+		<p></p>
+		<div>
+			<button ng-click="UC.cancel()" class="waves-effect waves-light btn">Cancel</button>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

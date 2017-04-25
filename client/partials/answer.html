@@ -1,0 +1,22 @@
+<div ng-controller="UsersController as UC">
+	<div ng-init="UC.show()">
+
+		<div>
+			{{UC.show.question}}
+		</div>	
+		<div>
+			{{UC.show.description}}
+		</div>
+		<form ng-submit="UC.answerQuestion(UC.newAnswer)">
+			<label>Your Answer:</label>
+				<input type="text" ng-model="UC.newAnswer.answer">
+			<label>Supporting details for your answer(optional):</label>
+				<input type="text" ng-model="UC.newAnswer.details">
+			<input type="submit" value="Answer" class="waves-effect waves-light btn">
+		</form>
+		<p></p>
+		<div>
+			<button ng-click="UC.cancel()" class="waves-effect waves-light btn">Cancel</button>
+		</div>
+	</div>
+</div>

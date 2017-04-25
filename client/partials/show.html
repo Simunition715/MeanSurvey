@@ -1,0 +1,27 @@
+<div ng-controller="UsersController as UC">
+
+	<div ng-init="UC.show()">
+		<button ng-click="UC.home()" class="waves-effect waves-light btn">Home</button>  <button ng-click="UC.answer(UC.show._id)" class="waves-effect waves-light btn">Answer</button>	
+	</div>
+		<label>Question</label>
+	<div>
+		{{UC.show.question}}
+	</div>
+		<label>Description</label>
+	<div>
+		{{UC.show.description}}
+	</div>
+	<p></p>
+		<label>Answers!</label>
+	<div>
+		<ul ng-repeat="answer in UC.show.answers | orderBy: '-like'">
+			<li>User: {{answer._user}}</li>
+			<li>Answer: {{answer.answer}}</li>
+			<li>Description: {{answer.details}}</li>
+			<li>Likes:{{answer.like}}</li>
+			<li><button ng-click="UC.like(answer._id, UC.show._id)" class="waves-effect waves-light btn">Like</button></li>
+
+		</ul>
+	</div>
+
+</div>
